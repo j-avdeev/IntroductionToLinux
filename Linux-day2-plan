@@ -1,0 +1,15 @@
+1. Ubuntu installation
+1.1 Create virtual machine
+1.2 Download iso image
+1.3. Installation with step-by-step description
+2. Midnigth Commander
+3. ~/.bashrc
+4. PATH
+5. Install synaptic
+
+6. Create and mount new hard drive. Set auto-mounting in fstab.
+7. Install ssh-server
+8. Install ftp-server
+9. Install smb-server
+10. Install nfs-server
+11. Cron

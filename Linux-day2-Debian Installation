@@ -95,12 +95,3 @@ $ sudo reboot now
 
 5.5.7 Enter vm machine ip addres and ssh port into WinSCP window. Connect.
 
-
-6. ~/.bashrc
-7. PATH
-
-8. Create and mount new hard drive. Set auto-mounting in fstab.
-9. Install ftp-server
-10. Install smb-server
-11. Install nfs-server
-12. Cron

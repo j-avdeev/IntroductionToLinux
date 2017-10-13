@@ -1,3 +1,10 @@
 Docker
 https://docs.docker.com/engine/docker-overview/
 http://docker.atbaker.me/exercises/exercise_0.html
+
+Vagrant
+
+Makefile
+
+Monitoring: Zabbix, Grafana
+Log collecting: ElasticSearch + Kibana

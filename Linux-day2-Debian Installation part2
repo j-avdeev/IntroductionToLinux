@@ -53,8 +53,6 @@ $ sudo nano /etc/fstab
 $ sudo reboot now
 $ df -h
 
-
-9. Install ftp-server
 10. Install smb-server
 11. Install nfs-server
 12. Cron

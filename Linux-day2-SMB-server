@@ -1,12 +1,12 @@
 9. Install smb-server
 9.1 Install by apt-get
-$ sudo apt-get install proftpd
+$ sudo apt-get install samba
 
-9.2 Check vsftpd working
-$ ps aux | grep ftp
+9.2 Change /etc/samba/smb.conf file with help of smb.conf in github repo
 
-9.3 Check and connect to ftp. Type in Windows file explorer
-ftp://192.168.0.102
+9.3 Check and connect to samba-server. Type in Windows file explorer
+//192.168.0.102
 
 where 192.168.0.102 - VM ip addres.
+
 Check file permissions. Try to add folder, file. Delete folder.

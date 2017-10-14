@@ -91,7 +91,7 @@ $ sudo reboot now
 
 5.5.5 Enter vm machine ip addres and ssh port into putty window. Connect.
 
-5.5.6 Try to download and run WinSCP ssh-client for Windows (https://winscp.net/eng/docs/executables#winscp.exe)
+5.5.6 Try to download and run WinSCP ssh-client for Windows (https://winscp.net/download/WinSCP-5.11.2-Portable.zip)
 
 5.5.7 Enter vm machine ip addres and ssh port into WinSCP window. Connect.
 

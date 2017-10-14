@@ -47,7 +47,7 @@ $ sudo mount -t ext4 /dev/sdb1 /disk2
 Add the following line to your fstab file
 $ sudo nano /etc/fstab
 
-/dev/sdb1 /disk2 ext3 defaults,errors=remount-ro 0 2
+/dev/sdb1 /disk2 ext4 defaults,errors=remount-ro 0 2
 
 7.11 Reboot and check is it works.
 $ sudo reboot now

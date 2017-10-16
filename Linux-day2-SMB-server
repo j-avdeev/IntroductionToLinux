@@ -4,8 +4,22 @@ $ sudo apt-get install samba
 
 9.2 Change /etc/samba/smb.conf file with help of smb.conf in github repo
 
-9.3 Check and connect to samba-server. Type in Windows file explorer
+9.3 Create share dir
+$ sudo mkdir /var/smb
+
+9.4. Allow read and write permissions
+$ sudo chmod ugo+rwx /var/smb
+
+9.5 Restart Samba
+
+$ sudo service smbd restart
+$ sudo service nmbd restart
+
+9.6 Check and connect to samba-server. Type in Windows file explorer
 //192.168.0.102
+
+or for Linux
+smb://192.168.0.102
 
 where 192.168.0.102 - VM ip addres.
 

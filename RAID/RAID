@@ -1,0 +1,12 @@
+About RAID types:
+https://ru.wikipedia.org/wiki/RAID
+
+Create RAID0 from 2 virtual hdd
+Something like this
+https://blog.amet13.name/2013/09/raid-0-debian.html
+
+
+Add e-mail notifications, when RAID is in
+
+Something like this
+https://dustymabe.com/2012/01/29/monitor-raid-arrays-and-get-e-mail-alerts-using-mdadm/

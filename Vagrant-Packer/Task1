@@ -1,5 +1,7 @@
 Какой "guest_os_type": для Ubuntu i386 ? Если для amd64 "Ubuntu_64"
 
+"guest_os_type": "Ubuntu",
+
 
 Добавить файл в файл настрое json выполнение scripts/samba.sh
 в котором описаны действия по установке, настройки smb-сервера.

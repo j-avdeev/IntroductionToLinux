@@ -1,0 +1,6 @@
+Какой "guest_os_type": для Ubuntu i386 ? Если для amd64 "Ubuntu_64"
+
+
+Добавить файл в файл настрое json выполнение scripts/samba.sh
+в котором описаны действия по установке, настройки smb-сервера.
+За основу можно взять файл /Day2-Installations/Linux-day2-SMB-server

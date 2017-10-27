@@ -13,7 +13,14 @@ After installing the required tools, you will need to ensure that your computer 
 
 From the packer-templates directory on your local machine:
 
-* Run `packer build -only=virtualbox-iso application-server.json`. You may see various timeouts and errors, as shown below. If you do, read Troubleshooting or retry the command until the ISO download succeeds:
+* Run `packer build -only=virtualbox-iso application-server.json`.
+* For Windows then run `vagrant box add ubuntu32 C:\Users\stud314\Downloads\IntroductionToLinux-master\IntroductionToLinux-master\Vagrant-Packer\packer-templates\virtualbox\ubuntu-14.04.5-server-i386-appserver_virtualbox.box`
+
+where
+C:\Users\stud314\Downloads\IntroductionToLinux-master\IntroductionToLinux-master\Vagrant-Packer\packer-templates\virtualbox\ubuntu-14.04.5-server-i386-appserver_virtualbox.box
+path to final box file.
+
+You may see various timeouts and errors, as shown below. If you do, read Troubleshooting or retry the command until the ISO download succeeds:
 
 ```
 read: operation timed out

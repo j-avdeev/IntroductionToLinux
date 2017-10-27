@@ -1,0 +1,11 @@
+1. Learn Gradle build system.
+2. Create web-application based on Java.
+For example, this.
+https://github.com/pkainulainen/gradle-examples/tree/master/first-java-project
+
+3. Create Unit-test for this web-application using JUnit library.
+4. Create Gradle build script for your web-application.
+5. Declare deploy gradle task that will deploy web application to the local Tomcat instance.
+6. Add to build script parameters and tasks for unit testing from Gradle.
+7. Add to build script parameters and tasks to perform static code analysis using findbugs and checkstyle.
+8. Test your build script.

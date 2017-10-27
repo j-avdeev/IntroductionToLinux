@@ -13,3 +13,7 @@ https://git-scm.com/book/ru/v1/Git-на-сервере-Настраиваем-с
 * Jenkins+Git integration:
 http://www.swtestacademy.com/jenkins-git-integration-ubuntu/
 https://wiki.jenkins.io/display/JENKINS/Git+Plugin
+
+* Setup and check testing in Jenkins.
+For example, use this manual:
+https://habrahabr.ru/post/170847/

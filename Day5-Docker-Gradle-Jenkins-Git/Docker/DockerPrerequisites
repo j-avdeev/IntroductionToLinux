@@ -1,4 +1,4 @@
 * To create VM from vagrant box
-vagrant box add puppetlabs/debian-7.8-32-puppet
+vagrant box add hashicorp/precise32
 * To install Docker on Debian use this instructions:
 https://docs.docker.com/engine/installation/linux/docker-ce/debian/

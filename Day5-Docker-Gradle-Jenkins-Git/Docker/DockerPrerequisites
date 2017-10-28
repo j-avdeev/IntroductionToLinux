@@ -1,5 +1,5 @@
 * To create VM from vagrant box
-vagrant box add puppetlabs/ubuntu-14.04-32-nocm
+>vagrant box add ngr/trusty32-rails4.1
 * To install Docker on Debian use this instructions:
 https://docs.docker.com/engine/installation/linux/docker-ce/debian/
 

@@ -11,6 +11,9 @@ On "Software selection:" screen, select only:
 
 Install the GRUB boot loader on a hard disk: Yes
 
+1.4 Если кириллические символы не отображаются
+https://mnorin.com/console-cyrillic-i-systemd-v-debian.html
+
 2. Add current user to sudoers
 2.1 Login as root
 $ su 

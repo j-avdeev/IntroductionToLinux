@@ -1,7 +1,7 @@
 1. Debian installation
 1.1 Create virtual machine
 1.2 Download iso image
-    (https://cdimage.debian.org/debian-cd/current/i386/iso-cd/debian-9.2.0-i386-netinst.iso)
+    (https://cdimage.debian.org/debian-cd/current/i386/iso-cd/debian-9.5.0-i386-netinst.iso)
 
 1.3. Installation with step-by-step description
 Select "Install", it is faster than "Graphical install".
@@ -10,6 +10,9 @@ On "Software selection:" screen, select only:
 * standard system utilities 
 
 Install the GRUB boot loader on a hard disk: Yes
+
+1.4 Если кириллические символы не отображаются
+https://mnorin.com/console-cyrillic-i-systemd-v-debian.html
 
 2. Add current user to sudoers
 2.1 Login as root

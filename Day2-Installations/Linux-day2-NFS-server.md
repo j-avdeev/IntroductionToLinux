@@ -22,7 +22,48 @@ $ dpkg -l | grep nfs-kernel-server
 ```
 # mount --bind /home/users /export/users
 ```
+Чтобы не набирать эту команду каждый раз после перезагрузки компьютера, добавим строчку в /etc/fstab
+```
+/home/users    /export/users   none    bind  0  0
+```
 
+Настройки NFS-сервера хранятся в трех файлах:
+/etc/default/nfs-kernel-server
+/etc/default/nfs-common
+/etc/exports
+
+Для нас пока важно, что в /etc/default/nfs-kernel-server переменная  NEED_SVCGSSD имеет значение «no», т.к. мы не будем использовать защиту NFSv4.
+
+Для того чтобы имена-идентификаторы при подключении совпадали, на клиенте и сервере файл /etc/idmapd.conf должен иметь содержимое с правильными именами. Кроме того, этот файл должен иметь следующие строки в разделе «Mapping»:
+
+```
+[Mapping]
+
+Nobody-User = nobody
+Nobody-Group = nogroup
+```
+Однако на разных клиента могут быть разные требования к Nobody-User и Nobody-Group. Например, в случае RedHat это nfsnobody для обоих. cat /etc/passwd и cat /etc/group должны выдавать «nobody».
+
+Таким образом, не обязательно совпадение идентификатора пользователя  UID/GUID на сервере и клиенте.
+
+Для тех, кто использует аутентификацию на основе LDAP, добавьте следующие строки в idmapd.conf вашего клиента:
+
+```
+[Translation]
+
+Method = nsswitch
+```
+
+Это сообщит idmapd, что нужно посмотреть в nsswitch.conf, чтобы определить, где искать информацию о учетной записи (и если у вас уже установлена аутентификация LDAP, nsswitch не требует дополнительных пояснений).
+
+Чтобы расшарить каталоги в локальную сеть 192.168.1.0/24, мы добавляем следующие две строки в /etc/exports
+```
+/export       192.168.1.0/24(rw,fsid=0,insecure,no_subtree_check,async)
+/export/users 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async)
+```
+
+
+--
 
 Оригинал: https://help.ubuntu.com/community/SettingUpNFSHowTo
 

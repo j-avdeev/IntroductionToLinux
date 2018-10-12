@@ -54,6 +54,3 @@ $ sudo reboot now
 $ df -h
 
 7* Change fstab to mount /dev/sdb1 with write permissions, not with read-only.
-
-11. Install nfs-server
-12. Cron

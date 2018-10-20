@@ -1,3 +1,12 @@
+Virtualbox решение проблемы с vboxdrv
+https://askubuntu.com/questions/41118/virtualbox-kernel-driver-not-installed
+
+$ sudo apt-get autoremove virtualbox-dkms
+$ sudo apt-get install build-essential linux-headers-`uname -r` dkms virtualbox-dkms
+
+$ sudo modprobe vboxdrv
+$ sudo modprobe vboxnetflt
+
 The goal is to install Jenkins of 1st machine, which will check Git repo on 2d machine.
 
 * Install Jenkins on 1st machine, use this instructions:

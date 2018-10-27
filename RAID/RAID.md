@@ -14,31 +14,40 @@ https://dustymabe.com/2012/01/29/monitor-raid-arrays-and-get-e-mail-alerts-using
 
 1. Добавляем в виртуальную машину еще один виртуальный жесткий диск
 2. Убеждаемся, что у нас теперь два жестких диска
+
 `$ fdisk -l`
+
 3. `# apt-get install mdadm`
 4. Скопировать таблицу разделов со старого диска на новый
+
 `$ dd if=/dev/sda of=/dev/sdb bs=512 count=1`
+
 5. Меняем идетификатор раздела на новом (sdb) с 83 (стандартный раздел Linux) на fd (Linux raid autodetect)
 
 `# fdisk /dev/sdb`
-`Command (m for help): t`
-`Selected partition 1`
-`Hex code (type L to list codes): fd`
-`Changed system type of partition 1 to fd (Linux raid autodetect)`
-`Command (m for help): w`
+Command (m for help): t
+Selected partition 1
+Hex code (type L to list codes): fd
+Changed system type of partition 1 to fd (Linux raid autodetect)
+Command (m for help): w
 
 6. Создаем разделы
+
 `# mdadm --create /dev/md0 --level=1 --raid-disks=2 missing /dev/sdb1`
+
 `# mdadm --create /dev/md1 --level=1 --raid-disks=2 missing /dev/sdb2`
 
 7. Проверяем
+
 `$ cat /proc/mdstat`
 
 `# mkfs.ext4 /dev/md127`
+
 `# mkswap /dev/md126`
 
 
 `# cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf.backup`
+
 `# mdadm --examine --scan >> /etc/mdadm/mdadm.conf`
 
 Монтируем рейд в папку /mnt
@@ -46,6 +55,13 @@ https://dustymabe.com/2012/01/29/monitor-raid-arrays-and-get-e-mail-alerts-using
 
 Копируем все от / и ниже в /mnt
 `# cp -dpRx / /mnt`
+
+Открываем файл настроек монтирования разделов
+`# nano /mnt/etc/fstab`
+
+`/dev/md127 /               ext4    errors=remount-ro 0       1`
+# swap was on /dev/vda5 during installation
+`/dev/md126 none            swap    sw              0       0`
 
 md0 127 8.9 GB
 md1 126 1021.4 MB

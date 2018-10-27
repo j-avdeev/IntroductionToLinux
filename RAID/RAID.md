@@ -32,4 +32,7 @@ Command (m for help): w
  # mdadm --create /dev/md1 --level=1 --raid-disks=2 missing /dev/sdb2
 
 7. Проверяем
- $ cat /proc/mdstat
+`$ cat /proc/mdstat`
+
+`# mkfs.ext4 /dev/md127`
+`# mkswap /dev/md126`

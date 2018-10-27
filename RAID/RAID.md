@@ -5,6 +5,17 @@ https://ru.wikipedia.org/wiki/RAID
 Что-то наподобие такого:
 http://blog.102web.ru/howto/debian-mdadm/
 
+SoftwareRaid: 1 HDD с системой, 2х HDD под RAID1.
+https://wiki.debian.org/SoftwareRAID
+
+`# fdisk /dev/sdb`
+n p 1 . . q
+
+`# fdisk /dev/sdc`
+n p 1 . . q
+
+
+
 
 2. Добавить e-mail уведомления о статусе RAID.
 Что-то наподобие такого:
@@ -46,31 +57,70 @@ Command (m for help): w
 
 `$ cat /proc/mdstat`
 
-`# mkfs.ext4 /dev/md127`
+`# mkfs.ext4 /dev/md126` (bigger)
 
-`# mkswap /dev/md126`
+`# mkswap /dev/md127` (smaller)
 
 
 `# cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf.backup`
 
 `# mdadm --examine --scan >> /etc/mdadm/mdadm.conf`
 
-Монтируем рейд в папку /mnt
+8. Монтируем рейд в папку /mnt
 
-`# mount /dev/md127 /mnt`
+`# mount /dev/md126 /mnt`
 
-Копируем все от / и ниже в /mnt
+9. Копируем все от / и ниже в /mnt
 
 `# cp -dpRx / /mnt`
 
-Открываем файл настроек монтирования разделов
+10. Открываем файл настроек монтирования разделов
 
 `# nano /mnt/etc/fstab`
 
-`/dev/md127 /               ext4    errors=remount-ro 0       1`
-`# swap was on /dev/vda5 during installation
-`/dev/md126 none            swap    sw              0       0`
+`/dev/md126 /               ext4    errors=remount-ro 0       1`
+`# swap was on /dev/vda5 during installation`
+`/dev/md127 none            swap    sw              0       0`
 
-md0 127 8.9 GB
+вместо /dev/md126, /dev/md127 писать UUID, которые можно посмотреть командой blkid
 
-md1 126 1021.4 MB
+11. Устанавливаем и конфигурируем grub
+
+`grub-install --root-directory=/mnt/ /dev/sdb`
+
+`grub-install --recheck /dev/sdb`
+
+12. `# nano /mnt/etc/default/grub`
+
+Раскомментировать
+`GRUB_TERMINAL=console`
+
+`mount --bind /dev /mnt/dev`
+
+`mount --bind /sys /mnt/sys`
+
+`mount --bind /proc /mnt/proc`
+
+`chroot /mnt`
+
+`update-grub`
+
+13. Смотрим `# nano /boot/grub/grub.cfg`
+
+14. Проверяем UUID
+
+`# blkid`
+
+15. Перезагружаемся
+`# exit`
+`# shutdown -r now`
+
+16. Снова подключаемся по ssh
+
+`# ssh vagrant@10.101.6.44`
+
+
+
+md0 127 8.9 GB 126
+
+md1 126 1021.4 MB 127

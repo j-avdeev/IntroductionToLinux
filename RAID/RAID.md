@@ -25,10 +25,15 @@ https://dustymabe.com/2012/01/29/monitor-raid-arrays-and-get-e-mail-alerts-using
 5. Меняем идетификатор раздела на новом (sdb) с 83 (стандартный раздел Linux) на fd (Linux raid autodetect)
 
 `# fdisk /dev/sdb`
+
 Command (m for help): t
+
 Selected partition 1
+
 Hex code (type L to list codes): fd
+
 Changed system type of partition 1 to fd (Linux raid autodetect)
+
 Command (m for help): w
 
 6. Создаем разделы
@@ -51,17 +56,21 @@ Command (m for help): w
 `# mdadm --examine --scan >> /etc/mdadm/mdadm.conf`
 
 Монтируем рейд в папку /mnt
+
 `# mount /dev/md127 /mnt`
 
 Копируем все от / и ниже в /mnt
+
 `# cp -dpRx / /mnt`
 
 Открываем файл настроек монтирования разделов
+
 `# nano /mnt/etc/fstab`
 
 `/dev/md127 /               ext4    errors=remount-ro 0       1`
-# swap was on /dev/vda5 during installation
+`# swap was on /dev/vda5 during installation
 `/dev/md126 none            swap    sw              0       0`
 
 md0 127 8.9 GB
+
 md1 126 1021.4 MB
